@@ -26,17 +26,17 @@ export default function Weather() {
     switch (cityChosed) {
       case "Paris":
         LoadData(
-          "http://api.weatherapi.com/v1/current.json?key=daa4b9c78d874472a60150746211812&lang=fr&q=Paris"
+          "http://api.weatherapi.com/v1/current.json?key=daa4b9c78d874472a60150746211812&lang=en&q=Paris"
         );
         break;
       case "Marseille":
         LoadData(
-          "http://api.weatherapi.com/v1/current.json?key=daa4b9c78d874472a60150746211812&lang=fr&q=Marseille"
+          "http://api.weatherapi.com/v1/current.json?key=daa4b9c78d874472a60150746211812&lang=en&q=Marseille"
         );
         break;
       case "NewYork":
         LoadData(
-          "http://api.weatherapi.com/v1/current.json?key=daa4b9c78d874472a60150746211812&lang=fr&q=New_York"
+          "http://api.weatherapi.com/v1/current.json?key=daa4b9c78d874472a60150746211812&lang=en&q=New_York"
         );
         break;
       default:
@@ -56,6 +56,20 @@ export default function Weather() {
     text-align: center;
     margin: auto;
   `;
+
+  function FetchedDataDisplay() {
+    return (
+      <div>
+        <div>City : {fetchedData?.location?.name}</div>
+        <div>Temperature : {fetchedData?.current?.temp_c} C° / {fetchedData?.current?.temp_f} F°</div>
+        <img src={fetchedData?.current?.condition?.icon} alt={fetchedData?.current?.condition?.text}/>
+        <div>{fetchedData?.current?.condition?.text}</div>
+        <div>Clouds : {fetchedData?.current?.cloud}</div>
+        <div>Wind Degree : {fetchedData?.current?.wind_degree}</div>
+        <div></div>
+      </div>
+    );
+  }
   return (
     <>
       <div>
@@ -66,15 +80,33 @@ export default function Weather() {
             </animated.div>
           ) : (
             <animated.div style={style}>
-              <Div1>Close city selector</Div1>
+              <Div1 onClick={() => setOpen(!isOpen)}>Close city selector</Div1>
               <Div2 onClick={() => setCity("Paris")}>
-                {cityChosed === "Paris" ? fetchedData?.current?.cloud : "Paris"}
+                {cityChosed === "Paris" ? (
+                  <>
+                    <FetchedDataDisplay />
+                  </>
+                ) : (
+                  "Paris"
+                )}
               </Div2>
               <Div2 onClick={() => setCity("Marseille")}>
-                {cityChosed === "Marseille" ? "CHOISI" : "Marseille"}
+                {cityChosed === "Marseille" ? (
+                  <>
+                    <FetchedDataDisplay />
+                  </>
+                ) : (
+                  "Marseille"
+                )}
               </Div2>
               <Div2 onClick={() => setCity("NewYork")}>
-                {cityChosed === "NewYork" ? "CHOISI" : "New York"}
+                {cityChosed === "NewYork" ? (
+                  <>
+                    <FetchedDataDisplay />
+                  </>
+                ) : (
+                  "New York"
+                )}
               </Div2>
             </animated.div>
           )

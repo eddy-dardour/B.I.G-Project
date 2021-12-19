@@ -93,7 +93,7 @@ export function NavMenu () {
         <Link to="/" className="link col-3 col-lg-3">Home</Link>
         <Link to="/Widgets" className="link col-3 col-lg-3">Widgets</Link>
         <Link to="/Calculator" className="link col-3 col-lg-3">Calculator</Link>
-        <Link to="/Calculator" className="link col-3 col-lg-3">Weather</Link>
+        <Link to="/Weather" className="link col-3 col-lg-3">Weather</Link>
         <Link to="/Calculator" className="link col-3 col-lg-3">Unit converter</Link>
         <Link to="/Color" className="link col-3 col-lg-3">Color Generator</Link>
         <Link to="/WidgetsAlt" className="link col-3 col-lg-3">Widgets Alt</Link>

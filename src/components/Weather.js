@@ -65,8 +65,8 @@ export default function Weather() {
         <img src={fetchedData?.current?.condition?.icon} alt={fetchedData?.current?.condition?.text}/>
         <div>{fetchedData?.current?.condition?.text}</div>
         <div>Clouds : {fetchedData?.current?.cloud}</div>
-        <div>Wind Degree : {fetchedData?.current?.wind_degree}</div>
-        <div></div>
+        <div>Wind Degree : {fetchedData?.current?.wind_degree} Deg°</div>
+        <div>Wind Speed : {fetchedData?.current?.wind_kph}Kph / {fetchedData?.current?.wind_mph}Mph</div>
       </div>
     );
   }

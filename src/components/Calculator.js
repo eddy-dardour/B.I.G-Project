@@ -91,12 +91,16 @@ export default function Calculator() {
                 </CalcButton>
                 <CalcButton
                   className='EQUAL'
-                  onClick={() =>
-                    setDisplay(
-                      //eslint-disable-next-line
-                      eval(display)
-                    )
-                  }
+                  onClick={() => {
+                    try {
+                      setDisplay(
+                        //eslint-disable-next-line
+                        eval(display)
+                      );
+                    } catch {
+                      setDisplay('ERROR')
+                    }
+                  }}
                 >
                   =
                 </CalcButton>
@@ -217,12 +221,16 @@ export default function Calculator() {
                 </CalcButton>
                 <CalcButton
                   className='EQUAL'
-                  onClick={() =>
-                    setDisplay(
-                      //eslint-disable-next-line
-                      eval(display)
-                    )
-                  }
+                  onClick={() => {
+                    try {
+                      setDisplay(
+                        //eslint-disable-next-line
+                        eval(display)
+                      );
+                    } catch {
+                      setDisplay('ERROR')
+                    }
+                  }}
                 >
                   =
                 </CalcButton>

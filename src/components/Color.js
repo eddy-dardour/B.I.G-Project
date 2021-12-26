@@ -8,7 +8,6 @@ export default function Color() {
     height: 100%;
     position: absolute;
     color: white;
-    border-radius: 20px;
     background-color: ${color};
   `;
 
@@ -19,7 +18,6 @@ export default function Color() {
       for (let i = 0; i < 6; i++) {
         arr.push(range[Math.round(Math.random() * 14)]);
       }
-      console.log(arr);
       return arr.join("");
     }
     setColor("#" + Gen());

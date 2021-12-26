@@ -18,23 +18,69 @@ export default function WidgetsAlt() {
   );
 }
 
+function WD2() {
+  const Rainbow = styled.div`
+    background-color: red;
+    padding: 10px;
+    border-radius: 50%;
+    height: 40px;
+    margin-left: 150px;
+    margin-top: 50px;
+    width: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 10px orange, 0 0 0 20px yellow, 0 0 0 30px chartreuse,
+      0 0 0 40px green, 0 0 0 50px skyblue, 0 0 0 60px blue, 0 0 0 70px purple;
+  `;
+  const RainbowGradient = styled.div`
+    background: radial-gradient(
+      circle,
+      rgba(236, 0, 0, 1) 0%,
+      rgba(255, 0, 0, 1) 10%,
+      rgba(227, 99, 0, 1) 20%,
+      rgba(153, 236, 4, 1) 30%,
+      rgba(69, 246, 45, 1) 40%,
+      rgba(40, 255, 32, 1) 50%,
+      rgba(106, 252, 233, 1) 60%,
+      rgba(111, 118, 249, 1) 70%,
+      rgba(255, 53, 250, 1) 80%
+    );
+    border-radius : 100%;
+    transform: translateZ(70px);
+    height: 180px;
+    margin-left: 150px;
+    margin-top: 50px;
+    width: 180px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  `;
+  return (
+    <>
+      <Rainbow>Test</Rainbow>
+      <RainbowGradient>Test</RainbowGradient>
+    </>
+  );
+}
+
 export function WidgetsAlt1(props) {
   const { settings } = props;
   useEffect(() => {
-    VanillaTilt.init(ref.current, settings);
+    VanillaTilt.init([ref.current, ref2.current], settings);
   }, [settings]);
   const ref = useRef(null);
+  const ref2 = useRef(null);
   return (
     <Background>
       <WidgetDiv1 ref={ref}>
         <WD1 />
       </WidgetDiv1>
+      <WidgetDiv1 ref={ref2}>
+        <WD2 />
+      </WidgetDiv1>
     </Background>
   );
-}
-
-export function sum(a, b) {
-  return a + b;
 }
 
 function WD1() {
@@ -80,6 +126,8 @@ const Grid = styled.div`
 const WidgetDiv1 = styled.div`
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
+  transform : perspective(1000px);
+  transform-style : preserve-3d;
 `;
 const BgAnim = keyframes`
     from {
